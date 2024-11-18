@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Denval Juice</title>
+</head>
+<body>
+    <h1>Welcome to Denval Juice!</h1>
+    <h2>Discover the best in the world of juice</h2>
+    <p>This is a fictional website for a juice company. Sign up for free to access their exclusive content and features.</p>
+    <form method="POST">
+        {% csrf_token %}
+        
+        {{ form.as_p }}
+        <input type="submit" value="Log In">
+        <p>Do not have an account? <a href="{% url 'denval_Juice:register' %}">Sign Up</a></p>
+        <p>Forgot Password? <a href="{% url 'password_reset' %}">Reset</a></p>
+    </form>
+    
+</body>
+</html>

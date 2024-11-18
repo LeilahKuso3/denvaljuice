@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Your Cart</h1>
+    {% if items %}
+    <ul>
+        {% for item in items %}
+        <li>
+            <strong>{{ item.juice.name }}</strong> - ksh{{ item.juice.price }} x {{ item.quantity }}
+            <p>Total: ksh{{ item.get_total_price }}</p>
+        </li>
+        {% endfor %}
+    </ul>
+    <h3>Total Price: ksh{{ total_price }}</h3>
+    
+    {% else %}
+    <p>Your cart is empty, Add items to the cart and proceed to the payment.</p>
+    {% endif %}
+
+    <form action="{% url 'denval_Juice:checkout' %}" method="POST">
+        {% csrf_token %}
+        <button type="submit">Place Your Order Now</button>
+    </form>
+
+</body>
+
+</html>

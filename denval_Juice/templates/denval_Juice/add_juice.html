@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Denval Juice</title>
+</head>
+
+<body>
+
+    <h1>Add New Juice</h1>
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ J_form.as_p }} 
+        <button type="submit">Add Juice</button>
+    </form>
+
+</body>
+
+</html>

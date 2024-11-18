@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Denval Juice</title>
+</head>
+
+<body>
+
+    <h2>Create Your Own Juice Blend</h2>
+    <p>Pick the available varieties to make your own juice blend</p>
+    {% if fruit_variety %}
+    <ul>
+        {% for fruit in fruit_variety %}
+        <li>{{ fruit }}</li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>No fruit varieties available.</p>
+    {% endif %}
+
+    <form method="post">
+        {% csrf_token %}
+        {{ b_form.as_p }}
+        <button type="submit">Create Blend</button>
+    </form>
+
+</body>
+
+</html>

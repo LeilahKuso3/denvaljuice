@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Denval Juice</title>
+    {% load static %}
+</head>
+
+<body>
+    <h2>Make Your Order Today, and Enjoy our Delicious Meal</h2>
+    {% if messages %}
+    {% for message in messages %}
+    {{ message }}
+    {% endfor %}
+    {% endif %}
+    <div class="menu-container">
+        <div class="menu-container">
+            <ul>
+                {% for juice in juices %}
+                <li class="menu-item">
+                    {% if juice.image %}
+                    <img src="{{ juice.image.url }}" alt="{{ juice.name }}" width="150" height="150">
+                    {% else %}
+                    <img src="{% static 'default-image.jpg' %}" alt="No image available" width="150" height="150">
+                    {% endif %}
+
+                    <h2>{{ juice.name }}</h2>
+                    <p><strong>ML:</strong>{{ juice.ml }}</p>
+                    <p><strong>Price:</strong> ksh {{ juice.price }}</p>
+
+                    <!-- Add to Cart Button -->
+                    <a href="{% url 'denval_Juice:add_to_cart' juice.id %}">Add to Cart</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <p>
+            <a href="{% url 'denval_Juice:cart' %}">View Cart</a>
+        </p>
+        <p>
+            <a href="{% url 'denval_Juice:home' %}">Back Home</a>
+        </p>
+
+        <p>
+            <a href="{% url 'denval_Juice:make-blend' %}">Create Your Own Juice Blend</a>
+        </p>
+</body>
+
+</html>
