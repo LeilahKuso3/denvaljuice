@@ -1,0 +1,110 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    font-family: "poppins", Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #f8f9fa; 
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+h1 {
+    
+    text-align: center;
+   
+}
+
+h2 {
+    
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+form {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px 30px;
+}
+
+input[type="submit"] {
+    background-color: #4CAF50; 
+    color: #fff; 
+    border-color: #4CAF50; 
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    width: 100%;
+}
+
+input[type="submit"]:hover {
+    background-color: #388E3C; 
+    border-color: #388E3C;
+}
+
+
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+form p {
+    margin: 10px 0;
+    text-align: center;
+}
+
+/* Form field styling */
+form p {
+    margin-bottom: 15px;
+}
+
+/* Form label styling */
+form label {
+    display: block;
+    margin-bottom: 5px;
+    text-align: left; /* Align labels to the left */
+}
+
+/* Form input styling */
+form input {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #bbdefb; /* Light blue border */
+    border-radius: 5px;
+    margin-bottom: 15px;
+    box-sizing: border-box; /* Ensure consistent sizing */
+    background-color: #e3f2fd; /* Light blue background */
+   
+}
+
+form input:focus {
+
+    outline: none;
+    box-shadow: 0 0 5px rgba(21, 101, 192, 0.5); /* Subtle blue glow */
+}
+
+
+/* Link styling */
+a {
+    color: #0d47a1; /* Darker blue for links */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #1565c0; /* Lighter blue on hover */
+}
+
+.juice{
+    color: green;
+}

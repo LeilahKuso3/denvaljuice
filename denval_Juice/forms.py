@@ -11,15 +11,30 @@ class DenvalUserCreationForm(UserCreationForm):
         model = User
         fields = ('username', 'email', 'password1', 'password2')
         
+    
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['username'].widget = forms.TextInput(attrs={
+            'class': 'form-control',
+            'placeholder': 'Enter your username',
+        })
+        self.fields['email'].widget = forms.EmailInput(attrs={
+            'class': 'form-control',
+            'placeholder': 'Enter your email',
+        })
+        self.fields['password1'].widget = forms.PasswordInput(attrs={
+            'class': 'form-control',
+            'placeholder': 'Enter your password',
+        })
+        self.fields['password2'].widget = forms.PasswordInput(attrs={
+            'class': 'form-control',
+            'placeholder': 'Confirm your password',
+        })
+        
 class JuiceForm(forms.ModelForm):
     class Meta:
         model = Juice
         fields = ('image','name', 'ml', 'price')
-
-# class PaymentForm(forms.ModelForm):
-#     class Meta:
-#         model = Payment
-#         fields = ('till_number', 'amount')
         
 class FruitModelForm(forms.ModelForm):
     class Meta:

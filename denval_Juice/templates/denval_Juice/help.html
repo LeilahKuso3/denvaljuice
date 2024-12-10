@@ -1,32 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Denval Juice</title>
+
+    {% load static %}
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'denval_Juice/help.css' %}">
 </head>
+
 <body>
-    <h2>HELP</h2>
-    <h4>How To Order</h4>
-    <p>1. Click order on the navbar to display the menu</p>
-    <p>2. Click the juice you want to add to cart</p>
-    <p>3. To view your chosen items click view cart</p>
-    <p>4. Click <strong>submit payment</strong>to complete your order</p>
+    <div class="container mt-5">
+        <div class="row g-4">
+            <h2 class="text-center fs-5 text-success">HELP</h2>
 
-    <h4>To Create Your Own Juice Blend:</h4>
-    <p>1. Go to create your own juice blend</p>
-    <p>2. Select the juices you want</p>
-    <p>3. Click <strong>Create Blend</strong> to place your order</p>
-    <p>4. Use the till number provided to make your payment</p>
-    <p>5. Show the payment message at the counter to receive your order</p>
+            <!-- Column 1: How to Order -->
+            <div class="col-md-4 bg-white shadow-lg p-4 rounded">
+                <p class="text-primary">How To Order</p>
+                <p>1. Click Order on the navbar to display the menu.</p>
+                <p>2. Click the juice you want to add to the cart.</p>
+                <p>3. To view your chosen items, click View Cart.</p>
+                <p>4. Click Submit Payment to complete your order.</p>
+            </div>
 
-    <h4>How to pay</h4>
-    <p>1. Add items to cart </p>
-    <p>2. Click <strong>view cart</strong> to see your items</p>
-    <p>3. Click 'place your order now' to display the amount to be paid and the till number</p>
-    <p>4. Go to Mpesa and use the till number provided to pay</p>
-    <p>5. Show the payment message at the counter to receive your order</p>
-    
-    <a href="{% url 'denval_Juice:home'%}">Back Home</a>
+            <!-- Column 2: How to Create Your Own Juice Blend -->
+            <div class="col-md-4 bg-white shadow-lg p-4 rounded">
+                <p class="text-primary">How To Create Your Own Juice Blend</p>
+                <p>1. Go to Create Your Own Juice Blend.</p>
+                <p>2. Select the juices you want.</p>
+                <p>3. Click Create Blend to place your order.</p>
+                <p>4. Use the till number provided to make your payment.</p>
+                <p>5. Show the payment message at the counter to receive your order.</p>
+            </div>
+
+            <!-- Column 3: How to Pay -->
+            <div class="col-md-4 bg-white shadow-lg p-4 rounded">
+                <p class="text-primary">How to Pay</p>
+                <p>1. Add items to the cart.</p>
+                <p>2. Click View Cartto see your items.</p>
+                <p>3. Click Place Your Order Now to display the amount to be paid and the till number.</p>
+                <p>4. Go to Mpesa and use the till number provided to pay.</p>
+                <p>5. Show the payment message at the counter to receive your order.</p>
+            </div>
+        </div>
+
+        <!-- Back Home Link -->
+        <div class="text-center mt-4">
+            <a href="{% url 'denval_Juice:home' %}" class="btn btn-secondary">Back Home</a>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>

@@ -32,14 +32,6 @@ class CartItem(models.Model):
 
     def get_total_price(self):
         return self.quantity * self.juice.price
-    
-#user payment model
-# class Payment(models.Model):
-#     till_number = models.CharField(max_length=20)
-#     amount = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
-    
-#     def __str__(self):
-#          return f"TILL Number: {self.till_number}\nAmount: ksh{self.amount:.2f}"
      
 #user create own blend
 class FruitModelForm(models.Model):

@@ -6,47 +6,70 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Denval Juice</title>
     {% load static %}
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'denval_Juice/menu.css' %}">
 </head>
 
 <body>
-    <h2>Make Your Order Today, and Enjoy our Delicious Meal</h2>
-    {% if messages %}
-    {% for message in messages %}
-    {{ message }}
-    {% endfor %}
-    {% endif %}
-    <div class="menu-container">
-        <div class="menu-container">
-            <ul>
-                {% for juice in juices %}
-                <li class="menu-item">
-                    {% if juice.image %}
-                    <img src="{{ juice.image.url }}" alt="{{ juice.name }}" width="150" height="150">
-                    {% else %}
-                    <img src="{% static 'default-image.jpg' %}" alt="No image available" width="150" height="150">
-                    {% endif %}
+    <div class="container my-5">
+        <!-- Title -->
+        <h2 class="fs-5 text-success text-center">
+            Make Order Today<br><span class="fs-6">Enjoy Your Favorite Juice</span>
+        </h2>
 
-                    <h2>{{ juice.name }}</h2>
-                    <p><strong>ML:</strong>{{ juice.ml }}</p>
-                    <p><strong>Price:</strong> ksh {{ juice.price }}</p>
+        <!-- Display Django Messages -->
+        {% if messages %}
+        <div class="mt-3">
+            {% for message in messages %}
+            <div class="alert alert-info" role="alert">
+                {{ message }}
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
 
-                    <!-- Add to Cart Button -->
-                    <a href="{% url 'denval_Juice:add_to_cart' juice.id %}">Add to Cart</a>
-                </li>
-                {% endfor %}
-            </ul>
+        <!-- Juice Items -->
+        <div class="row g-4 mt-4">
+            {% for juice in juices %}
+            <div class="col-md-4">
+                <div class="bg-white shadow-lg p-4 rounded">
+                    <li class="menu-item list-unstyled text-center">
+                        {% if juice.image %}
+                        <img src="{{ juice.image.url }}" alt="{{ juice.name }}" class="img-fluid rounded mb-3"
+                            style="width: 150px; height: 150px;">
+                        {% else %}
+                        <img src="{% static 'default-image.jpg' %}" alt="No image available"
+                            class="img-fluid rounded mb-3" style="width: 150px; height: 150px;">
+                        {% endif %}
+
+                        <h3 class="fs-6 text-primary">{{ juice.name }}</h3>
+                        <p><strong>ML:</strong> {{ juice.ml }}</p>
+                        <p><strong>Price:</strong> ksh {{ juice.price }}</p>
+
+                        <!-- Add to Cart Button -->
+                        <a href="{% url 'denval_Juice:add_to_cart' juice.id %}" class="btn btn-success btn-sm">
+                            Add to Cart
+                        </a>
+                    </li>
+                </div>
+            </div>
+            {% endfor %}
         </div>
 
-        <p>
-            <a href="{% url 'denval_Juice:cart' %}">View Cart</a>
-        </p>
-        <p>
-            <a href="{% url 'denval_Juice:home' %}">Back Home</a>
-        </p>
+        <!-- Navigation Links -->
+        <div class="mt-4 text-center">
+            <a href="{% url 'denval_Juice:home' %}" class="btn btn-secondary btn-sm">Back Home</a>
+            <a href="{% url 'denval_Juice:cart' %}" class="btn btn-primary btn-sm">View Cart</a>
+            <a href="{% url 'denval_Juice:make-blend' %}" class="btn btn-warning btn-sm">Create Your Own Juice Blend</a>
+        </div>
+    </div>
 
-        <p>
-            <a href="{% url 'denval_Juice:make-blend' %}">Create Your Own Juice Blend</a>
-        </p>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 
 </html>
